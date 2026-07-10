@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditi Kulkarni — Data Analysis Portfolio</title>
+<meta name="description" content="Data analysis portfolio of Aditi Kulkarni — Python, pandas, scikit-learn, NLP, and interactive data apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f7f8fa;
+    --border: #e6e8ec;
+    --text: #1a1d21;
+    --muted: #5b6470;
+    --accent: #2f6f6a;      /* muted teal */
+    --accent-soft: #e7f1f0;
+    --radius: 14px;
+    --maxw: 960px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .nav-inner .brand { font-weight: 700; letter-spacing: -0.01em; }
+  .nav-links a { color: var(--muted); margin-left: 22px; font-size: 0.94rem; font-weight: 500; }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  @media (max-width: 620px) { .nav-links a { margin-left: 14px; } .nav-links a.hide-sm { display: none; } }
+
+  /* Hero */
+  .hero { padding: 88px 0 56px; }
+  .hero h1 { font-size: 2.9rem; line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 16px; }
+  .hero .lead { font-size: 1.2rem; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+  .hero .cta a {
+    display: inline-block; padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 0.96rem; margin-right: 12px;
+  }
+  .cta .primary { background: var(--accent); color: #fff; }
+  .cta .primary:hover { background: #275b57; text-decoration: none; }
+  .cta .ghost { border: 1px solid var(--border); color: var(--text); }
+  .cta .ghost:hover { border-color: var(--accent); text-decoration: none; }
+  @media (max-width: 620px) { .hero h1 { font-size: 2.1rem; } }
+
+  section { padding: 44px 0; border-top: 1px solid var(--border); }
+  section h2 { font-size: 1.5rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  section .sub { color: var(--muted); margin: 0 0 28px; }
+
+  /* Projects */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 22px 22px 20px; display: flex; flex-direction: column;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card .tag { font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--accent); background: var(--accent-soft); padding: 3px 9px; border-radius: 999px; align-self: flex-start; }
+  .card h3 { margin: 12px 0 6px; font-size: 1.18rem; letter-spacing: -0.01em; }
+  .card p { margin: 0 0 16px; color: var(--muted); font-size: 0.96rem; flex-grow: 1; }
+  .card .links a { font-size: 0.9rem; font-weight: 600; margin-right: 16px; }
+  .card .links a::after { content: " →"; font-weight: 400; }
+  .card .stack { font-size: 0.8rem; color: var(--muted); margin-top: 14px; }
+
+  /* Skills */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip { background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+    padding: 7px 15px; font-size: 0.9rem; font-weight: 500; }
+
+  /* Contact */
+  .contact-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
+  .contact-links a {
+    display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px;
+    border: 1px solid var(--border); border-radius: 10px; font-weight: 500; color: var(--text);
+  }
+  .contact-links a:hover { border-color: var(--accent); text-decoration: none; }
+
+  footer { padding: 40px 0 60px; color: var(--muted); font-size: 0.88rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <span class="brand">Aditi Kulkarni</span>
+    <nav class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills" class="hide-sm">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="wrap hero">
+    <h1>Data analysis, made interactive.</h1>
+    <p class="lead">
+      I'm Aditi — I turn messy data into clear insight and build tools people can actually
+      click through. Python, statistics, NLP, and a growing shelf of live data apps.
+    </p>
+    <div class="cta">
+      <a class="primary" href="#projects">View projects</a>
+      <a class="ghost" href="https://drive.google.com/file/d/1zETLepSyvuFNyBipU6lgXat0IroL60Jo/view?usp=sharing">Download résumé</a>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="sub">A mix of interactive apps and analysis. Click through — most run live.</p>
+      <div class="grid">
+
+        <!-- Yearbook -->
+        <div class="card">
+          <span class="tag">Live app</span>
+          <h3>Yearbook</h3>
+          <p>
+            A personal "year in review" for your media. Upload Spotify, Apple Music, or
+            YouTube Music history — or connect Spotify live — and get top artists, listening
+            habits, and superlatives. A second page does the same for Goodreads / StoryGraph
+            reading data. One normalization engine, many messy export formats.
+          </p>
+          <div class="links">
+            <a href="https://year-booook.streamlit.app/">Live demo</a>
+            <a href="https://github.com/mynamo/YearBook">Source</a>
+          </div>
+          <div class="stack">Python · Streamlit · pandas · Altair · Spotify OAuth</div>
+        </div>
+
+        <!-- Topic Modeling -->
+        <div class="card">
+          <span class="tag">Live app</span>
+          <h3>Topic Modeling</h3>
+          <p>
+            Assigns topics to a set of documents with an LDA model. Paste text or upload a
+            file and watch topics form live, with per-topic term weights and a dominant-topic
+            breakdown per document. Built from my original NLTK + gensim project.
+          </p>
+          <div class="links">
+            <a href="https://mynamo-topicmodelingapp-streamlit-app-inesw2.streamlit.app/">Live demo</a>
+            <a href="https://github.com/mynamo/TopicModeling">Source</a>
+          </div>
+          <div class="stack">Python · gensim (LDA) · NLTK · Streamlit</div>
+        </div>
+
+        <!-- Statistical Data Analysis -->
+        <div class="card">
+          <span class="tag">Analysis</span>
+          <h3>Statistical Data Analysis</h3>
+          <p>
+            Summary statistics and exploratory data analysis using pandas and scikit-learn —
+            cleaning, describing, and finding structure in a dataset, with the reasoning
+            written up alongside the code.
+          </p>
+          <div class="links">
+            <a href="https://github.com/mynamo/Statistical_Data_Analysis">Source</a>
+          </div>
+          <div class="stack">Python · pandas · scikit-learn</div>
+        </div>
+
+        <!-- chattea -->
+        <div class="card">
+          <span class="tag">Web app</span>
+          <h3>chattea</h3>
+          <p>
+            A chat web application built with Django — models, views, templates, and URL
+            routing behind a working server. A change of pace from the data apps, showing
+            full-stack Python and web-framework fundamentals.
+          </p>
+          <div class="links">
+            <a href="https://chattea.onrender.com/">Live demo</a>
+            <a href="https://github.com/mynamo/chattea">Source</a>
+          </div>
+          <div class="stack">Python · Django · SQLite · HTML</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills &amp; tools</h2>
+      <p class="sub">What I reach for.</p>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">pandas</span>
+        <span class="chip">scikit-learn</span>
+        <span class="chip">NumPy</span>
+        <span class="chip">NLTK</span>
+        <span class="chip">gensim</span>
+        <span class="chip">Streamlit</span>
+        <span class="chip">Altair</span>
+        <span class="chip">Django</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Git &amp; GitHub</span>
+        <span class="chip">Data visualization</span>
+        <span class="chip">Statistics</span>
+        <span class="chip">NLP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <p class="sub">A little context.</p>
+      <p style="max-width:680px; color:var(--muted); font-size:1.02rem;">
+        I'm a data enthusiast focused on statistical analysis and natural language processing.
+        I enjoy the full arc of a project — wrangling raw exports into clean data, finding the
+        story in it, and then packaging that into something interactive so other people can
+        explore it too. Lately I've been building live data apps with Streamlit and sharpening
+        my full-stack skills with Django. I'm always happy to talk data, tools, and cats!
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p class="sub">Open to opportunities and collaborations.</p>
+      <div class="contact-links">
+        <a href="mailto:aditivk94@gmail.com">✉ Email</a>
+        <a href="https://github.com/mynamo">GitHub</a>
+        <a href="https://www.linkedin.com/in/aditikulkarni183/">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1zETLepSyvuFNyBipU6lgXat0IroL60Jo/view?usp=sharing">Résumé</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> Aditi Kulkarni · Built with plain HTML &amp; CSS · Hosted on GitHub Pages
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

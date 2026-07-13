@@ -7,6 +7,18 @@
   <title>Aditi Kulkarni — Data Analysis Portfolio</title>
   <meta name="description"
     content="Data analysis portfolio of Aditi Kulkarni — Python, pandas, scikit-learn, NLP, and interactive data apps.">
+  <link rel="icon" href="preview.jpg">
+  <meta property="og:title" content="Aditi Kulkarni — Data Analysis Portfolio">
+  <meta property="og:description"
+    content="Data analysis portfolio of Aditi Kulkarni — Python, pandas, scikit-learn, NLP, and interactive data apps.">
+  <meta property="og:image" content="https://mynamo.github.io/preview.jpg">
+  <meta property="og:url" content="https://mynamo.github.io">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aditi Kulkarni — Data Analysis Portfolio">
+  <meta name="twitter:description"
+    content="Data analysis portfolio of Aditi Kulkarni — Python, pandas, scikit-learn, NLP, and interactive data apps.">
+  <meta name="twitter:image" content="https://mynamo.github.io/preview.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -103,6 +115,34 @@
     /* Hero */
     .hero {
       padding: 88px 0 56px;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--accent-soft);
+    }
+
+    @media (max-width: 620px) {
+      .hero-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 24px;
+      }
+
+      .hero-photo {
+        width: 128px;
+        height: 128px;
+      }
     }
 
     .hero h1 {
@@ -306,13 +346,18 @@
   <main>
     <!-- HERO -->
     <div class="wrap hero">
-      <h1>About me</h1>
-      <p class="lead">
-        A software developer with a keen interest in backend programming, API/features development, distributed systems, data analysis and cats!
-      </p>
-      <div class="cta">
-        <a class="primary" href="#projects">View projects</a>
-        <a class="ghost" href="Aditi-Kulkarni.pdf">Download résumé</a>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>About me</h1>
+          <p class="lead">
+            A software developer with a keen interest in backend programming, API/features development, distributed systems, data analysis and cats!
+          </p>
+          <div class="cta">
+            <a class="primary" href="#projects">View projects</a>
+            <a class="ghost" href="Aditi-Kulkarni.pdf">Download résumé</a>
+          </div>
+        </div>
+        <img class="hero-photo" src="preview.jpg" alt="Aditi Kulkarni">
       </div>
     </div>
 
@@ -320,7 +365,7 @@
     <section id="projects">
       <div class="wrap">
         <h2>Projects</h2>
-        <p class="sub">An</p>
+        <p class="sub">Some of my personal projects</p>
         <div class="grid">
 
           <!-- Yearbook -->
